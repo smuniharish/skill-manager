@@ -25,6 +25,7 @@ nav:
   - Home: index.md
   - Start:
       - Install and first bundle: getting-started.md
+      - Agent Skills: agent-skills.md
       - Skills and protocol:
           - Skill model: concepts/skills.md
           - YAML protocol: concepts/skill-protocol.md

@@ -73,6 +73,7 @@ include = [
   "/tests",
   "/docs",
   "/examples",
+  "/skill-manager-skills",
   "/benchmarks",
   "/README.md",
   "/LICENSE",

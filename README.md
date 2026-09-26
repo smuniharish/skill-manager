@@ -79,6 +79,7 @@ respective libraries.
 Read the [documentation](docs/index.md) for:
 
 - [installation and first bundle](docs/getting-started.md)
+- [portable Agent Skill installation](docs/agent-skills.md)
 - [Skill generation and governance](docs/guides/agent-skill-generation.md)
 - [LangChain, LangGraph, and Deep Agents integrations](docs/index.md#integrate-with-your-application)
 - [production-oriented runnable examples](docs/examples/basic.md)

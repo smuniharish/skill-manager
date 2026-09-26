@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: uv sync --all-groups
+      - run: uv run ruff check .
+      - run: uv run black --check .
+      - run: uv run pyrefly check
+      - run: uv run coverage run -m pytest
+      - run: uv run coverage report --fail-under=80
+      - run: uv build
+      - run: uv run twine check dist/*
+      - run: uv run mkdocs build --strict
+      - name: Installed wheel smoke test
+        run: |
+          uv venv --python 3.12 .venv-smoke
+          uv pip install --python .venv-smoke/bin/python dist/*.whl
+          .venv-smoke/bin/python -c "import skill_manager; print(skill_manager.__all__)"
